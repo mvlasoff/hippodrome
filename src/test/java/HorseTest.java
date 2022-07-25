@@ -146,7 +146,4 @@ class HorseTest {
             assertEquals(expectedDistance, actualDistance);
         }
     }
-
-
-
 }

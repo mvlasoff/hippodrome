@@ -105,7 +105,7 @@ class HippodromeTest {
     @Test
     public void whenInvokeGetWinnerThenGetHorseWithLongestDistance() {
         Hippodrome hippodrome = new Hippodrome(horses);
-        String expectedHorse = horses.get(29).getName();
+        String expectedHorse = horses.get(horses.size() - 1).getName();
         String actualHorse = hippodrome.getWinner().getName();
         assertEquals(expectedHorse, actualHorse);
     }

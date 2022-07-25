@@ -10,12 +10,15 @@ public class Hippodrome {
 
     public Hippodrome(List<Horse> horses) {
         if (isNull(horses)) {
+            Main.log.error("Horses list is null");
             throw new IllegalArgumentException("Horses cannot be null.");
         } else if (horses.isEmpty()) {
+            Main.log.error("Horses list is empty");
             throw new IllegalArgumentException("Horses cannot be empty.");
         }
 
         this.horses = horses;
+        Main.log.debug("Создание Hippodrome, лошадей [{}]", horses.size());
     }
 
     public List<Horse> getHorses() {
@@ -26,6 +29,7 @@ public class Hippodrome {
         horses.forEach(Horse::move);
     }
 
+    @SuppressWarnings("OptionalGetWithoutIsPresent")
     public Horse getWinner() {
         return horses.stream()
                 .max(Comparator.comparing(Horse::getDistance))
